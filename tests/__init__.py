@@ -1,3 +1,3 @@
-# SPDX-FileCopyrightText: 2022-present Henry Chang <henry.chang@intel.com>
+# SPDX-FileCopyrightText: 2022 Johann Chang <mr.changyuheng@gmail.com>
 #
 # SPDX-License-Identifier: MIT

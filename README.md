@@ -4,7 +4,7 @@ Inspired by [columnify](https://github.com/timoxley/columnify).
 
 `columnify` creates text-based columnized (ls-like) content suitable for console output from list of strings.
 
-Columns are automatically resized to fit the content of the largest cell. Each cell will be padded with spaces to fill the available space and ensure column contents are left-aligned.
+Columns are automatically resized to fit the content of the largest cell. Each cell will be padded with spaces to fill the available space and ensure column contents are aligned.
 
 **Table of Contents**
 
