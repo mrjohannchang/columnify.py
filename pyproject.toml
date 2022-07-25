@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "columnify"
-description = 'To create text-based columnified (ls-like) content suitable for console output from a list of strings'
+description = 'To create text-based columnized (ls-like) content suitable for console output from a list of strings'
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MPL-2.0"
