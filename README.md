@@ -5,6 +5,10 @@
 
 -----
 
+`columnify` creates text-based columnified (ls-like) content suitable for console output from list of strings.
+
+Columns are automatically resized to fit the content of the largest cell. Each cell will be padded with spaces to fill the available space and ensure column contents are left-aligned.
+
 **Table of Contents**
 
 - [Quick Start](#quick-start)
@@ -13,9 +17,9 @@
   - [Methods](#methods)
 - [License](#license)
 
-## Quick Start
+## Usage
 
-### Source
+### Default
 
 ```py
 import shutil
@@ -44,11 +48,24 @@ output: str = columnify.columnify(given, shutil.get_terminal_size().columns)
 print(output)
 ```
 
-### Result
+#### Output
 
 ```
 Canidae  Cat     Dog     Goat        Horse  Rabbit               laboratory rat strains
 Felidae  Cattle  Donkey  Guinea pig  Pig    Fancy rat varieties
+```
+
+### Horizon first
+
+```py
+print(columnify.columnify(given, shutil.get_terminal_size().columns), horizon_first=True)
+```
+
+#### Output
+
+```
+Canidae     Felidae  Cat  Cattle  Dog                  Donkey                  Goat
+Guinea pig  Horse    Pig  Rabbit  Fancy rat varieties  laboratory rat strains
 ```
 
 ## Installation
@@ -62,13 +79,12 @@ pip install columnify
 ### Methods
 
 ```py
-output: str = \
-    columnify(
-        items: list[str],
-        line_width: int,
-        indent: int = 0,
-        delimiter: str = '  ',
-        horizon_first: bool = False) -> str
+columnify(
+    items: list[str],
+    line_width: int,
+    indent: int = 0,
+    delimiter: str = '  ',
+    horizon_first: bool = False) -> str
 ```
 
 ## License
