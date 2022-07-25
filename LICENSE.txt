@@ -1,4 +1,4 @@
-Copyright (c) 2022-present Johann Chang <mr.changyuheng@gmail.com>
+Copyright (c) 2022 Johann Chang <mr.changyuheng@gmail.com>
 
 Mozilla Public License Version 2.0
 ==================================

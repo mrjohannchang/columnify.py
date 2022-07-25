@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Johann Chang <mr.changyuheng@gmail.com>
+#
+# SPDX-License-Identifier: MPL-2.0
+
 import math
 import os
 
@@ -7,7 +11,11 @@ def columnify(
         line_width: int,
         indent: int = 0,
         delimiter: str = '  ',
+        align_func_name: str = 'ljust',
         horizon_first: bool = False) -> str:
+    if align_func_name not in ('ljust', 'center', 'rjust'):
+        raise ValueError('alignment must be one of these options: ljust, center, rjust')
+
     res: str = ''
 
     if not items:
@@ -45,7 +53,8 @@ def columnify(
                 line: str = ' ' * indent
                 x: tuple[int, str]
                 line += delimiter.join(
-                    map(lambda x: x[1].ljust(column_widths[x[0]]), enumerate(items[i:i + num_column])))
+                    map(lambda x: getattr(x[1], align_func_name)(column_widths[x[0]]),
+                        enumerate(items[i:i + num_column])))
                 line += os.linesep
                 res += line
             res = res.rstrip(os.linesep)
@@ -76,7 +85,7 @@ def columnify(
         c: int
         item: str
         res = os.linesep.join(' ' * indent + delimiter.join(
-            item.ljust(column_widths[c]) for c, item in enumerate(row)) for row in rows)
+            getattr(item, align_func_name)(column_widths[c]) for c, item in enumerate(row)) for row in rows)
 
     if not res:
         res = ' ' * indent + f'{os.linesep}{" " * indent}'.join(items)
